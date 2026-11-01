@@ -36,7 +36,7 @@ cd ..
 bash code/run_all.sh                       # log: logs/run-<RUN_ID>.log
 ```
 
-Results land in `results/summary.md` (all tables for the report) and `results/speed_accuracy.png`.
+Results land in `results/summary.md` and `results/speed_accuracy.png`.
 
 ## Files
 
@@ -50,35 +50,4 @@ Results land in `results/summary.md` (all tables for the report) and `results/sp
 | `code/run_all.sh` | 3 models × 2 datasets + `summarize.py`, with a reproducibility header in the log |
 | `code/summarize.py` | builds `results/summary.md` tables and the speed–accuracy plot |
 
-## Settings (state these in the report)
 
-- imgsz 640, conf 0.001 (standard for mAP), NMS IoU 0.7 (YOLO only; RT-DETR does not use NMS), max_det 300, batch 1, FP32.
-- Latency = mean Ultralytics preprocess + inference + postprocess per image (CUDA-synchronized), after 20 warm-up passes.
-- The domain-shift comparison uses only the **shared classes** (person, car, truck). COCO is re-scored on just those 3 classes so the comparison is apples-to-apples.
-
-## Caveats to discuss in the report
-
-- **Cyclist → person.** KITTI boxes cover rider + bike, while COCO models box only the rider. Expect low IoU, and person AP75 hurt more than AP50.
-- **Dropped classes.** Tram/Misc/DontCare regions are not in the GT, so detections there count as false positives.
-- **Scale.** KITTI is 1242×375; at imgsz 640 everything shrinks ~1.9×, so many pedestrians become COCO-"small". Compare AP_S vs AP_L.
-- **Area definition.** KITTI "area" is box area; COCO uses mask area, so S/M/L buckets differ slightly.
-- **One machine.** RTX 3060 under WSL2. Close GPU apps and use a fixed (High-performance) power plan. WSL2 adds a little latency vs native Linux, but all models share the same conditions.
-- **Using KITTI train is valid.** No model saw KITTI during training, so all 7,481 labeled images are unseen test data.
-
-## Suggested report outline (15 slides)
-
-1. Title / goal
-2. Models and families: YOLOv8s vs YOLO11s (C2f → C3k2 + C2PSA) vs RT-DETR-L (hybrid encoder + query decoder, NMS-free)
-3. Datasets + taxonomy mapping table
-4. Setup: hardware, versions, thresholds, exact commands (copy from `summary.md` §5)
-5. COCO results (Table 1)
-6–7. COCO→KITTI domain shift: overall + per-class / per-scale (Tables 2–3)
-8. Speed–accuracy plot
-9. Latency breakdown (Table 4: NMS cost in YOLO postprocess vs RT-DETR)
-10. Architecture comparison
-11–12. Failure analysis from `vis/` images (missed small pedestrians, cyclist box mismatch, vans→truck, FPs on trams)
-13. Conclusions
-14. References (≥8, ≥4 papers, ≥2 docs)
-15. Appendix: repo link, `code/`, `logs/*.log`, `results/*/metrics.json`
-
-Submit the code folder + `logs/` + `results/*/metrics.json` as the command log.
