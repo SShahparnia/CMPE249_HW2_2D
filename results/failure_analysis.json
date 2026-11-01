@@ -1,0 +1,401 @@
+{
+  "operating_conf": 0.25,
+  "models": {
+    "yolov8s": {
+      "per_kitti_class": {
+        "car": {
+          "n": 28742,
+          "recall50": 0.8055806833205762,
+          "recall75": 0.5303040846148493,
+          "median_best_iou": 0.7685176872651583
+        },
+        "pedestrian": {
+          "n": 4487,
+          "recall50": 0.600401158903499,
+          "recall75": 0.23378649431691553,
+          "median_best_iou": 0.589575773184566
+        },
+        "cyclist": {
+          "n": 1627,
+          "recall50": 0.2901044867854948,
+          "recall75": 0.037492317148125384,
+          "median_best_iou": 0.3412398849649791
+        },
+        "truck": {
+          "n": 1094,
+          "recall50": 0.3272394881170018,
+          "recall75": 0.2870201096892139,
+          "median_best_iou": 0.0
+        },
+        "van": {
+          "n": 2914,
+          "recall50": 0.4420041180507893,
+          "recall75": 0.28517501715854493,
+          "median_best_iou": 0.3457580707158562
+        },
+        "person_sitting": {
+          "n": 222,
+          "recall50": 0.34234234234234234,
+          "recall75": 0.07657657657657657,
+          "median_best_iou": 0.36829939978764237
+        }
+      },
+      "best_overlap_class": {
+        "car": {
+          "car": 23061,
+          "(missed)": 5428,
+          "truck": 205,
+          "train": 20,
+          "bus": 12,
+          "person": 5,
+          "airplane": 4,
+          "motorcycle": 4,
+          "boat": 1,
+          "umbrella": 1,
+          "parking meter": 1
+        },
+        "pedestrian": {
+          "person": 2692,
+          "(missed)": 1777,
+          "car": 8,
+          "fire hydrant": 3,
+          "bicycle": 2,
+          "motorcycle": 2,
+          "truck": 1,
+          "handbag": 1,
+          "horse": 1
+        },
+        "cyclist": {
+          "(missed)": 1083,
+          "person": 465,
+          "bicycle": 57,
+          "motorcycle": 14,
+          "car": 8
+        },
+        "truck": {
+          "(missed)": 392,
+          "truck": 333,
+          "train": 196,
+          "bus": 162,
+          "car": 11
+        },
+        "van": {
+          "car": 1126,
+          "(missed)": 824,
+          "truck": 751,
+          "bus": 209,
+          "train": 3,
+          "parking meter": 1
+        },
+        "person_sitting": {
+          "(missed)": 137,
+          "person": 75,
+          "car": 5,
+          "horse": 2,
+          "motorcycle": 1,
+          "chair": 1,
+          "bench": 1
+        }
+      },
+      "person_recall50_by_height": {
+        "h>=40px": {
+          "n": 5463,
+          "recall50": 0.5791689547867472
+        },
+        "25<=h<40px": {
+          "n": 693,
+          "recall50": 0.10966810966810966
+        },
+        "h<25px": {
+          "n": 180,
+          "recall50": 0.011111111111111112
+        }
+      },
+      "dropped_boxes_covered": {
+        "misc": {
+          "n": 973,
+          "frac_with_conf_pred": 0.460431654676259,
+          "by": {
+            "truck": 175,
+            "car": 105,
+            "motorcycle": 82,
+            "bus": 65,
+            "bicycle": 7,
+            "person": 11,
+            "train": 1,
+            "chair": 2
+          }
+        },
+        "tram": {
+          "n": 511,
+          "frac_with_conf_pred": 0.36203522504892366,
+          "by": {
+            "train": 149,
+            "bus": 33,
+            "car": 3
+          }
+        }
+      }
+    },
+    "yolo11s": {
+      "per_kitti_class": {
+        "car": {
+          "n": 28742,
+          "recall50": 0.8034931459188643,
+          "recall75": 0.5374017117806694,
+          "median_best_iou": 0.7725433135667438
+        },
+        "pedestrian": {
+          "n": 4487,
+          "recall50": 0.5843548027635391,
+          "recall75": 0.22710051259193226,
+          "median_best_iou": 0.5775220733253681
+        },
+        "cyclist": {
+          "n": 1627,
+          "recall50": 0.27535341118623236,
+          "recall75": 0.03318992009834051,
+          "median_best_iou": 0.3096340000369119
+        },
+        "truck": {
+          "n": 1094,
+          "recall50": 0.3171846435100548,
+          "recall75": 0.27056672760511885,
+          "median_best_iou": 0.0
+        },
+        "van": {
+          "n": 2914,
+          "recall50": 0.4474948524365134,
+          "recall75": 0.30919698009608787,
+          "median_best_iou": 0.3748783168299016
+        },
+        "person_sitting": {
+          "n": 222,
+          "recall50": 0.3153153153153153,
+          "recall75": 0.10810810810810811,
+          "median_best_iou": 0.36537420854322267
+        }
+      },
+      "best_overlap_class": {
+        "car": {
+          "car": 23031,
+          "(missed)": 5530,
+          "truck": 158,
+          "train": 10,
+          "motorcycle": 4,
+          "person": 3,
+          "bus": 3,
+          "suitcase": 1,
+          "umbrella": 1,
+          "parking meter": 1
+        },
+        "pedestrian": {
+          "person": 2619,
+          "(missed)": 1857,
+          "car": 6,
+          "fire hydrant": 3,
+          "motorcycle": 1,
+          "bicycle": 1
+        },
+        "cyclist": {
+          "(missed)": 1119,
+          "person": 434,
+          "bicycle": 51,
+          "motorcycle": 15,
+          "car": 7,
+          "horse": 1
+        },
+        "truck": {
+          "(missed)": 377,
+          "truck": 315,
+          "train": 200,
+          "bus": 188,
+          "car": 14
+        },
+        "van": {
+          "car": 1166,
+          "(missed)": 859,
+          "truck": 730,
+          "bus": 149,
+          "train": 7,
+          "traffic light": 2,
+          "potted plant": 1
+        },
+        "person_sitting": {
+          "(missed)": 144,
+          "person": 69,
+          "car": 6,
+          "chair": 2,
+          "handbag": 1
+        }
+      },
+      "person_recall50_by_height": {
+        "h>=40px": {
+          "n": 5463,
+          "recall50": 0.5628775398132894
+        },
+        "25<=h<40px": {
+          "n": 693,
+          "recall50": 0.09379509379509379
+        },
+        "h<25px": {
+          "n": 180,
+          "recall50": 0.0
+        }
+      },
+      "dropped_boxes_covered": {
+        "misc": {
+          "n": 973,
+          "frac_with_conf_pred": 0.4398766700924974,
+          "by": {
+            "truck": 195,
+            "car": 87,
+            "motorcycle": 72,
+            "person": 11,
+            "bus": 57,
+            "bench": 4,
+            "fire hydrant": 1,
+            "bicycle": 1
+          }
+        },
+        "tram": {
+          "n": 511,
+          "frac_with_conf_pred": 0.39921722113502933,
+          "by": {
+            "train": 168,
+            "bus": 33,
+            "car": 3
+          }
+        }
+      }
+    },
+    "rtdetr-l": {
+      "per_kitti_class": {
+        "car": {
+          "n": 28742,
+          "recall50": 0.8795838842112588,
+          "recall75": 0.6044812469556746,
+          "median_best_iou": 0.8066948735283455
+        },
+        "pedestrian": {
+          "n": 4487,
+          "recall50": 0.6630265210608425,
+          "recall75": 0.25406730554936485,
+          "median_best_iou": 0.620347608761334
+        },
+        "cyclist": {
+          "n": 1627,
+          "recall50": 0.36263060848186845,
+          "recall75": 0.049170251997541485,
+          "median_best_iou": 0.4236127904076723
+        },
+        "truck": {
+          "n": 1094,
+          "recall50": 0.6617915904936015,
+          "recall75": 0.5621572212065814,
+          "median_best_iou": 0.8052086281787645
+        },
+        "van": {
+          "n": 2914,
+          "recall50": 0.6527110501029513,
+          "recall75": 0.4629375428963624,
+          "median_best_iou": 0.7237588312130036
+        },
+        "person_sitting": {
+          "n": 222,
+          "recall50": 0.45045045045045046,
+          "recall75": 0.12612612612612611,
+          "median_best_iou": 0.4591102574957693
+        }
+      },
+      "best_overlap_class": {
+        "car": {
+          "car": 23120,
+          "(missed)": 3425,
+          "truck": 2177,
+          "bus": 10,
+          "person": 5,
+          "train": 3,
+          "parking meter": 2
+        },
+        "pedestrian": {
+          "person": 2974,
+          "(missed)": 1494,
+          "car": 12,
+          "potted plant": 3,
+          "chair": 1,
+          "truck": 1,
+          "fire hydrant": 1,
+          "parking meter": 1
+        },
+        "cyclist": {
+          "(missed)": 973,
+          "person": 581,
+          "bicycle": 56,
+          "car": 13,
+          "motorcycle": 2,
+          "parking meter": 1,
+          "truck": 1
+        },
+        "truck": {
+          "truck": 640,
+          "(missed)": 190,
+          "train": 150,
+          "bus": 96,
+          "car": 18
+        },
+        "van": {
+          "truck": 1408,
+          "car": 927,
+          "(missed)": 455,
+          "bus": 124
+        },
+        "person_sitting": {
+          "(missed)": 115,
+          "person": 100,
+          "car": 4,
+          "handbag": 2,
+          "chair": 1
+        }
+      },
+      "person_recall50_by_height": {
+        "h>=40px": {
+          "n": 5463,
+          "recall50": 0.6331685886875343
+        },
+        "25<=h<40px": {
+          "n": 693,
+          "recall50": 0.26695526695526695
+        },
+        "h<25px": {
+          "n": 180,
+          "recall50": 0.11666666666666667
+        }
+      },
+      "dropped_boxes_covered": {
+        "misc": {
+          "n": 973,
+          "frac_with_conf_pred": 0.6474820143884892,
+          "by": {
+            "truck": 303,
+            "car": 104,
+            "motorcycle": 104,
+            "bus": 78,
+            "person": 23,
+            "bicycle": 17,
+            "bench": 1
+          }
+        },
+        "tram": {
+          "n": 511,
+          "frac_with_conf_pred": 0.5362035225048923,
+          "by": {
+            "train": 183,
+            "bus": 61,
+            "truck": 30
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2096 @@
+Host: DESKTOP-5GA8ANJ   Run: rerun-20261031-203113   Date: Sat Oct 31 20:31:13 PDT 2026   Kernel: 6.18.54.1-microsoft-standard-WSL2   Reps: 3
+PRETTY_NAME="Ubuntu 24.04.1 LTS"
+name, memory.total [MiB], driver_version
+NVIDIA GeForce RTX 3060, 12288 MiB, 617.14
+torch 2.11.0+cu128 cuda 12.8 cudnn 91900 tv 0.26.0+cu128 ultralytics 8.4.197
+8e6bae256b16e9623c050979bb47c224  /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/rtdetr-l.pt
+9637097d5fbdc1002d25d2d3d9f7c435  /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolo11s.pt
+0a1d5d0619d5a24848a267ec1e3a3118  /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolov8s.pt
+Idle check before start: GPU util 5%  memory used 1107 MiB (limit 10%)
+
+>>> rep 1/3  20:31:28  GPU before: 4% 1105 MiB
+>>> python eval_det.py --model yolov8s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1
+loading annotations into memory...
+Done (t=0.41s)
+creating index...
+index created!
+[0/5000] /home/sherv/cmpe249_data/coco/val2017/000000000139.jpg
+[500/5000] /home/sherv/cmpe249_data/coco/val2017/000000057027.jpg
+[1000/5000] /home/sherv/cmpe249_data/coco/val2017/000000119365.jpg
+[1500/5000] /home/sherv/cmpe249_data/coco/val2017/000000173091.jpg
+[2000/5000] /home/sherv/cmpe249_data/coco/val2017/000000229753.jpg
+[2500/5000] /home/sherv/cmpe249_data/coco/val2017/000000289594.jpg
+WARNING ⚠️ NMS time limit 2.050s exceeded
+[3000/5000] /home/sherv/cmpe249_data/coco/val2017/000000347544.jpg
+[3500/5000] /home/sherv/cmpe249_data/coco/val2017/000000405249.jpg
+[4000/5000] /home/sherv/cmpe249_data/coco/val2017/000000463174.jpg
+[4500/5000] /home/sherv/cmpe249_data/coco/val2017/000000521601.jpg
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=2.20s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=26.37s).
+Accumulating evaluation results...
+DONE (t=3.29s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.442
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.605
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.478
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.254
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.490
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.603
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.344
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.562
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.611
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.401
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.674
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.758
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=2.16s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=7.46s).
+Accumulating evaluation results...
+DONE (t=0.73s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.455
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.651
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.486
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.272
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.555
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.671
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.226
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.535
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.598
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.432
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.696
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.786
+{
+  "config": {
+    "model": "yolov8s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolov8s.pt",
+    "weights_md5": "0a1d5d0619d5a24848a267ec1e3a3118",
+    "dataset": "coco",
+    "split": "COCO val2017",
+    "gt_file": "/home/sherv/cmpe249_data/coco/annotations/instances_val2017.json",
+    "n_images": 5000,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolov8s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.4704752968031244,
+    "inference": 10.887515234398233,
+    "postprocess": 1.75470714280018,
+    "total": 13.112697674001538,
+    "fps_end_to_end": 76.26195805480161,
+    "fps_inference_only": 91.84832153810265,
+    "wall_clock_s": 79.9269270979994
+  },
+  "memory_mb": {
+    "peak_allocated": 78.61865234375,
+    "peak_reserved": 104.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1/yolov8s_coco
+
+>>> rep 1/3  20:33:52  GPU before: 3% 1060 MiB
+>>> python eval_det.py --model yolov8s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1
+loading annotations into memory...
+Done (t=0.07s)
+creating index...
+index created!
+[0/7481] /home/sherv/cmpe249_data/kitti/images/train/000002.png
+[500/7481] /home/sherv/cmpe249_data/kitti/images/train/000629.png
+[1000/7481] /home/sherv/cmpe249_data/kitti/images/train/001233.png
+[1500/7481] /home/sherv/cmpe249_data/kitti/images/train/001855.png
+[2000/7481] /home/sherv/cmpe249_data/kitti/images/train/002483.png
+[2500/7481] /home/sherv/cmpe249_data/kitti/images/train/003123.png
+[3000/7481] /home/sherv/cmpe249_data/kitti/images/train/003747.png
+[3500/7481] /home/sherv/cmpe249_data/kitti/images/train/004360.png
+[4000/7481] /home/sherv/cmpe249_data/kitti/images/train/004988.png
+[4500/7481] /home/sherv/cmpe249_data/kitti/images/train/005635.png
+[5000/7481] /home/sherv/cmpe249_data/kitti/images/train/006271.png
+WARNING ⚠️ NMS time limit 2.050s exceeded
+[5500/7481] /home/sherv/cmpe249_data/kitti/images/train/006897.png
+[6000/7481] /home/sherv/cmpe249_data/kitti/images/val/000106.png
+[6500/7481] /home/sherv/cmpe249_data/kitti/images/val/002601.png
+[7000/7481] /home/sherv/cmpe249_data/kitti/images/val/005095.png
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=6.11s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=21.62s).
+Accumulating evaluation results...
+DONE (t=3.56s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.222
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.436
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.206
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.177
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.320
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.188
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.375
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.409
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.402
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.390
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.470
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=3.30s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=25.85s).
+Accumulating evaluation results...
+DONE (t=2.77s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.222
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.436
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.206
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.177
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.320
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.188
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.375
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.409
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.402
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.390
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.470
+{
+  "config": {
+    "model": "yolov8s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolov8s.pt",
+    "weights_md5": "0a1d5d0619d5a24848a267ec1e3a3118",
+    "dataset": "kitti",
+    "split": "KITTI train+val (all labeled, Ultralytics version)",
+    "gt_file": "/home/sherv/cmpe249_data/kitti_coco/kitti_trainval_coco.json",
+    "n_images": 7481,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolov8s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.5723667343911669,
+    "inference": 9.464812660478666,
+    "postprocess": 1.6352825785355511,
+    "total": 11.672461973405385,
+    "fps_end_to_end": 85.67172909009314,
+    "fps_inference_only": 105.6544947979379,
+    "wall_clock_s": 102.64998200100035
+  },
+  "memory_mb": {
+    "peak_allocated": 55.82568359375,
+    "peak_reserved": 84.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1/yolov8s_kitti
+
+>>> rep 1/3  20:36:58  GPU before: 5% 1042 MiB
+>>> python eval_det.py --model yolo11s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1
+loading annotations into memory...
+Done (t=0.38s)
+creating index...
+index created!
+[0/5000] /home/sherv/cmpe249_data/coco/val2017/000000000139.jpg
+[500/5000] /home/sherv/cmpe249_data/coco/val2017/000000057027.jpg
+[1000/5000] /home/sherv/cmpe249_data/coco/val2017/000000119365.jpg
+[1500/5000] /home/sherv/cmpe249_data/coco/val2017/000000173091.jpg
+[2000/5000] /home/sherv/cmpe249_data/coco/val2017/000000229753.jpg
+[2500/5000] /home/sherv/cmpe249_data/coco/val2017/000000289594.jpg
+[3000/5000] /home/sherv/cmpe249_data/coco/val2017/000000347544.jpg
+[3500/5000] /home/sherv/cmpe249_data/coco/val2017/000000405249.jpg
+[4000/5000] /home/sherv/cmpe249_data/coco/val2017/000000463174.jpg
+[4500/5000] /home/sherv/cmpe249_data/coco/val2017/000000521601.jpg
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=2.03s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=25.52s).
+Accumulating evaluation results...
+DONE (t=3.18s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.457
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.623
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.493
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.278
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.502
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.625
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.348
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.568
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.617
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.424
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.673
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.772
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=2.09s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=7.26s).
+Accumulating evaluation results...
+DONE (t=0.60s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.464
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.658
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.500
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.279
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.557
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.697
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.232
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.551
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.616
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.451
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.701
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.821
+{
+  "config": {
+    "model": "yolo11s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolo11s.pt",
+    "weights_md5": "9637097d5fbdc1002d25d2d3d9f7c435",
+    "dataset": "coco",
+    "split": "COCO val2017",
+    "gt_file": "/home/sherv/cmpe249_data/coco/annotations/instances_val2017.json",
+    "n_images": 5000,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolo11s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.43456861859303897,
+    "inference": 10.493483853003454,
+    "postprocess": 1.336348996198467,
+    "total": 12.26440146779496,
+    "fps_end_to_end": 81.53679595583166,
+    "fps_inference_only": 95.2972353136827,
+    "wall_clock_s": 72.71837205199972
+  },
+  "memory_mb": {
+    "peak_allocated": 110.57080078125,
+    "peak_reserved": 134.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1/yolo11s_coco
+
+>>> rep 1/3  20:39:11  GPU before: 5% 1043 MiB
+>>> python eval_det.py --model yolo11s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1
+loading annotations into memory...
+Done (t=0.06s)
+creating index...
+index created!
+[0/7481] /home/sherv/cmpe249_data/kitti/images/train/000002.png
+[500/7481] /home/sherv/cmpe249_data/kitti/images/train/000629.png
+[1000/7481] /home/sherv/cmpe249_data/kitti/images/train/001233.png
+[1500/7481] /home/sherv/cmpe249_data/kitti/images/train/001855.png
+[2000/7481] /home/sherv/cmpe249_data/kitti/images/train/002483.png
+[2500/7481] /home/sherv/cmpe249_data/kitti/images/train/003123.png
+[3000/7481] /home/sherv/cmpe249_data/kitti/images/train/003747.png
+[3500/7481] /home/sherv/cmpe249_data/kitti/images/train/004360.png
+[4000/7481] /home/sherv/cmpe249_data/kitti/images/train/004988.png
+[4500/7481] /home/sherv/cmpe249_data/kitti/images/train/005635.png
+[5000/7481] /home/sherv/cmpe249_data/kitti/images/train/006271.png
+[5500/7481] /home/sherv/cmpe249_data/kitti/images/train/006897.png
+[6000/7481] /home/sherv/cmpe249_data/kitti/images/val/000106.png
+[6500/7481] /home/sherv/cmpe249_data/kitti/images/val/002601.png
+[7000/7481] /home/sherv/cmpe249_data/kitti/images/val/005095.png
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=2.81s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=22.72s).
+Accumulating evaluation results...
+DONE (t=3.15s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.223
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.437
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.207
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.132
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.325
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.184
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.377
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.410
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.358
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.396
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.484
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=2.75s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=22.75s).
+Accumulating evaluation results...
+DONE (t=3.09s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.223
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.437
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.207
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.132
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.325
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.184
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.377
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.410
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.358
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.396
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.484
+{
+  "config": {
+    "model": "yolo11s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolo11s.pt",
+    "weights_md5": "9637097d5fbdc1002d25d2d3d9f7c435",
+    "dataset": "kitti",
+    "split": "KITTI train+val (all labeled, Ultralytics version)",
+    "gt_file": "/home/sherv/cmpe249_data/kitti_coco/kitti_trainval_coco.json",
+    "n_images": 7481,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolo11s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.4978418023027275,
+    "inference": 9.225219040628518,
+    "postprocess": 1.2796397366682004,
+    "total": 11.002700579599447,
+    "fps_end_to_end": 90.8867775475178,
+    "fps_inference_only": 108.39851017042838,
+    "wall_clock_s": 94.72289254499992
+  },
+  "memory_mb": {
+    "peak_allocated": 82.84033203125,
+    "peak_reserved": 100.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1/yolo11s_kitti
+
+>>> rep 1/3  20:42:03  GPU before: 6% 1043 MiB
+>>> python eval_det.py --model rtdetr-l.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1
+loading annotations into memory...
+Done (t=0.40s)
+creating index...
+index created!
+[0/5000] /home/sherv/cmpe249_data/coco/val2017/000000000139.jpg
+[500/5000] /home/sherv/cmpe249_data/coco/val2017/000000057027.jpg
+[1000/5000] /home/sherv/cmpe249_data/coco/val2017/000000119365.jpg
+[1500/5000] /home/sherv/cmpe249_data/coco/val2017/000000173091.jpg
+[2000/5000] /home/sherv/cmpe249_data/coco/val2017/000000229753.jpg
+[2500/5000] /home/sherv/cmpe249_data/coco/val2017/000000289594.jpg
+[3000/5000] /home/sherv/cmpe249_data/coco/val2017/000000347544.jpg
+[3500/5000] /home/sherv/cmpe249_data/coco/val2017/000000405249.jpg
+[4000/5000] /home/sherv/cmpe249_data/coco/val2017/000000463174.jpg
+[4500/5000] /home/sherv/cmpe249_data/coco/val2017/000000521601.jpg
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=5.36s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=43.15s).
+Accumulating evaluation results...
+DONE (t=10.97s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.528
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.712
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.572
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.344
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.574
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.708
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.388
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.652
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.717
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.546
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.758
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.890
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=5.27s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=10.04s).
+Accumulating evaluation results...
+DONE (t=1.39s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.526
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.748
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.564
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.341
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.613
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.754
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.269
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.635
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.716
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.591
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.779
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.897
+{
+  "config": {
+    "model": "rtdetr-l.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/rtdetr-l.pt",
+    "weights_md5": "8e6bae256b16e9623c050979bb47c224",
+    "dataset": "coco",
+    "split": "COCO val2017",
+    "gt_file": "/home/sherv/cmpe249_data/coco/annotations/instances_val2017.json",
+    "n_images": 5000,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model rtdetr-l.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.8494734765996327,
+    "inference": 38.27830971000439,
+    "postprocess": 0.7237665971984825,
+    "total": 39.85154978380251,
+    "fps_end_to_end": 25.093127003217468,
+    "fps_inference_only": 26.12445553568006,
+    "wall_clock_s": 215.4932744839998
+  },
+  "memory_mb": {
+    "peak_allocated": 238.640625,
+    "peak_reserved": 302.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1/rtdetr-l_coco
+
+>>> rep 1/3  20:47:33  GPU before: 6% 1043 MiB
+>>> python eval_det.py --model rtdetr-l.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1
+loading annotations into memory...
+Done (t=0.07s)
+creating index...
+index created!
+[0/7481] /home/sherv/cmpe249_data/kitti/images/train/000002.png
+[500/7481] /home/sherv/cmpe249_data/kitti/images/train/000629.png
+[1000/7481] /home/sherv/cmpe249_data/kitti/images/train/001233.png
+[1500/7481] /home/sherv/cmpe249_data/kitti/images/train/001855.png
+[2000/7481] /home/sherv/cmpe249_data/kitti/images/train/002483.png
+[2500/7481] /home/sherv/cmpe249_data/kitti/images/train/003123.png
+[3000/7481] /home/sherv/cmpe249_data/kitti/images/train/003747.png
+[3500/7481] /home/sherv/cmpe249_data/kitti/images/train/004360.png
+[4000/7481] /home/sherv/cmpe249_data/kitti/images/train/004988.png
+[4500/7481] /home/sherv/cmpe249_data/kitti/images/train/005635.png
+[5000/7481] /home/sherv/cmpe249_data/kitti/images/train/006271.png
+[5500/7481] /home/sherv/cmpe249_data/kitti/images/train/006897.png
+[6000/7481] /home/sherv/cmpe249_data/kitti/images/val/000106.png
+[6500/7481] /home/sherv/cmpe249_data/kitti/images/val/002601.png
+[7000/7481] /home/sherv/cmpe249_data/kitti/images/val/005095.png
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=7.78s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=40.67s).
+Accumulating evaluation results...
+DONE (t=5.95s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.261
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.485
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.252
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.253
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.359
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.229
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.485
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.532
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.536
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.512
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.577
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=7.28s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=36.88s).
+Accumulating evaluation results...
+DONE (t=5.89s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.261
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.485
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.252
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.253
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.359
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.229
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.485
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.532
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.536
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.512
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.577
+{
+  "config": {
+    "model": "rtdetr-l.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/rtdetr-l.pt",
+    "weights_md5": "8e6bae256b16e9623c050979bb47c224",
+    "dataset": "kitti",
+    "split": "KITTI train+val (all labeled, Ultralytics version)",
+    "gt_file": "/home/sherv/cmpe249_data/kitti_coco/kitti_trainval_coco.json",
+    "n_images": 7481,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model rtdetr-l.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.7852230934324224,
+    "inference": 36.94660211788981,
+    "postprocess": 0.6901340252607604,
+    "total": 38.42195923658299,
+    "fps_end_to_end": 26.026783117500745,
+    "fps_inference_only": 27.066088427000242,
+    "wall_clock_s": 305.78643725300026
+  },
+  "memory_mb": {
+    "peak_allocated": 238.640625,
+    "peak_reserved": 302.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1/rtdetr-l_kitti
+
+>>> rep 2/3  20:55:06  GPU before: 0% 1043 MiB
+>>> python eval_det.py --model yolov8s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2
+loading annotations into memory...
+Done (t=0.40s)
+creating index...
+index created!
+[0/5000] /home/sherv/cmpe249_data/coco/val2017/000000000139.jpg
+[500/5000] /home/sherv/cmpe249_data/coco/val2017/000000057027.jpg
+[1000/5000] /home/sherv/cmpe249_data/coco/val2017/000000119365.jpg
+[1500/5000] /home/sherv/cmpe249_data/coco/val2017/000000173091.jpg
+[2000/5000] /home/sherv/cmpe249_data/coco/val2017/000000229753.jpg
+[2500/5000] /home/sherv/cmpe249_data/coco/val2017/000000289594.jpg
+[3000/5000] /home/sherv/cmpe249_data/coco/val2017/000000347544.jpg
+[3500/5000] /home/sherv/cmpe249_data/coco/val2017/000000405249.jpg
+[4000/5000] /home/sherv/cmpe249_data/coco/val2017/000000463174.jpg
+[4500/5000] /home/sherv/cmpe249_data/coco/val2017/000000521601.jpg
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=2.25s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=22.70s).
+Accumulating evaluation results...
+DONE (t=3.18s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.442
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.605
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.478
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.254
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.490
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.603
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.344
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.562
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.611
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.401
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.674
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.758
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=2.08s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=10.17s).
+Accumulating evaluation results...
+DONE (t=0.66s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.455
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.651
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.486
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.272
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.555
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.671
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.226
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.535
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.598
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.432
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.696
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.786
+{
+  "config": {
+    "model": "yolov8s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolov8s.pt",
+    "weights_md5": "0a1d5d0619d5a24848a267ec1e3a3118",
+    "dataset": "coco",
+    "split": "COCO val2017",
+    "gt_file": "/home/sherv/cmpe249_data/coco/annotations/instances_val2017.json",
+    "n_images": 5000,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolov8s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.40862988820208557,
+    "inference": 8.2647465419941,
+    "postprocess": 1.3304880109986699,
+    "total": 10.003864441194855,
+    "fps_end_to_end": 99.96137051618831,
+    "fps_inference_only": 120.99584602127705,
+    "wall_clock_s": 61.26399466900057
+  },
+  "memory_mb": {
+    "peak_allocated": 78.61865234375,
+    "peak_reserved": 104.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2/yolov8s_coco
+
+>>> rep 2/3  20:57:10  GPU before: 1% 1043 MiB
+>>> python eval_det.py --model yolov8s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2
+loading annotations into memory...
+Done (t=0.07s)
+creating index...
+index created!
+[0/7481] /home/sherv/cmpe249_data/kitti/images/train/000002.png
+[500/7481] /home/sherv/cmpe249_data/kitti/images/train/000629.png
+[1000/7481] /home/sherv/cmpe249_data/kitti/images/train/001233.png
+[1500/7481] /home/sherv/cmpe249_data/kitti/images/train/001855.png
+[2000/7481] /home/sherv/cmpe249_data/kitti/images/train/002483.png
+[2500/7481] /home/sherv/cmpe249_data/kitti/images/train/003123.png
+[3000/7481] /home/sherv/cmpe249_data/kitti/images/train/003747.png
+[3500/7481] /home/sherv/cmpe249_data/kitti/images/train/004360.png
+[4000/7481] /home/sherv/cmpe249_data/kitti/images/train/004988.png
+[4500/7481] /home/sherv/cmpe249_data/kitti/images/train/005635.png
+[5000/7481] /home/sherv/cmpe249_data/kitti/images/train/006271.png
+[5500/7481] /home/sherv/cmpe249_data/kitti/images/train/006897.png
+[6000/7481] /home/sherv/cmpe249_data/kitti/images/val/000106.png
+[6500/7481] /home/sherv/cmpe249_data/kitti/images/val/002601.png
+[7000/7481] /home/sherv/cmpe249_data/kitti/images/val/005095.png
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=3.73s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=22.36s).
+Accumulating evaluation results...
+DONE (t=6.31s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.222
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.436
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.206
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.177
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.320
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.188
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.375
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.409
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.402
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.390
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.470
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=3.29s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=22.74s).
+Accumulating evaluation results...
+DONE (t=7.35s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.222
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.436
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.206
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.177
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.320
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.188
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.375
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.409
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.402
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.390
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.470
+{
+  "config": {
+    "model": "yolov8s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolov8s.pt",
+    "weights_md5": "0a1d5d0619d5a24848a267ec1e3a3118",
+    "dataset": "kitti",
+    "split": "KITTI train+val (all labeled, Ultralytics version)",
+    "gt_file": "/home/sherv/cmpe249_data/kitti_coco/kitti_trainval_coco.json",
+    "n_images": 7481,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolov8s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.5130213869778427,
+    "inference": 7.462498142759942,
+    "postprocess": 1.346838914978731,
+    "total": 9.322358444716516,
+    "fps_end_to_end": 107.26899270503314,
+    "fps_inference_only": 134.00338343403038,
+    "wall_clock_s": 82.60333038499994
+  },
+  "memory_mb": {
+    "peak_allocated": 55.82568359375,
+    "peak_reserved": 84.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2/yolov8s_kitti
+
+>>> rep 2/3  20:59:59  GPU before: 0% 1042 MiB
+>>> python eval_det.py --model yolo11s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2
+loading annotations into memory...
+Done (t=0.40s)
+creating index...
+index created!
+[0/5000] /home/sherv/cmpe249_data/coco/val2017/000000000139.jpg
+[500/5000] /home/sherv/cmpe249_data/coco/val2017/000000057027.jpg
+[1000/5000] /home/sherv/cmpe249_data/coco/val2017/000000119365.jpg
+[1500/5000] /home/sherv/cmpe249_data/coco/val2017/000000173091.jpg
+[2000/5000] /home/sherv/cmpe249_data/coco/val2017/000000229753.jpg
+[2500/5000] /home/sherv/cmpe249_data/coco/val2017/000000289594.jpg
+[3000/5000] /home/sherv/cmpe249_data/coco/val2017/000000347544.jpg
+[3500/5000] /home/sherv/cmpe249_data/coco/val2017/000000405249.jpg
+[4000/5000] /home/sherv/cmpe249_data/coco/val2017/000000463174.jpg
+[4500/5000] /home/sherv/cmpe249_data/coco/val2017/000000521601.jpg
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=2.12s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=26.00s).
+Accumulating evaluation results...
+DONE (t=3.06s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.457
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.623
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.493
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.278
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.502
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.625
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.348
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.568
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.617
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.424
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.673
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.772
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=2.03s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=7.60s).
+Accumulating evaluation results...
+DONE (t=0.66s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.464
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.658
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.500
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.279
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.557
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.697
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.232
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.551
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.616
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.451
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.701
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.821
+{
+  "config": {
+    "model": "yolo11s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolo11s.pt",
+    "weights_md5": "9637097d5fbdc1002d25d2d3d9f7c435",
+    "dataset": "coco",
+    "split": "COCO val2017",
+    "gt_file": "/home/sherv/cmpe249_data/coco/annotations/instances_val2017.json",
+    "n_images": 5000,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolo11s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.4037490115970286,
+    "inference": 10.12726577580579,
+    "postprocess": 1.2653843477970441,
+    "total": 11.796399135199863,
+    "fps_end_to_end": 84.77163145625093,
+    "fps_inference_only": 98.74333528295632,
+    "wall_clock_s": 70.0243356280007
+  },
+  "memory_mb": {
+    "peak_allocated": 110.57080078125,
+    "peak_reserved": 134.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2/yolo11s_coco
+
+>>> rep 2/3  21:02:09  GPU before: 0% 1046 MiB
+>>> python eval_det.py --model yolo11s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2
+loading annotations into memory...
+Done (t=0.07s)
+creating index...
+index created!
+[0/7481] /home/sherv/cmpe249_data/kitti/images/train/000002.png
+[500/7481] /home/sherv/cmpe249_data/kitti/images/train/000629.png
+[1000/7481] /home/sherv/cmpe249_data/kitti/images/train/001233.png
+[1500/7481] /home/sherv/cmpe249_data/kitti/images/train/001855.png
+[2000/7481] /home/sherv/cmpe249_data/kitti/images/train/002483.png
+[2500/7481] /home/sherv/cmpe249_data/kitti/images/train/003123.png
+[3000/7481] /home/sherv/cmpe249_data/kitti/images/train/003747.png
+[3500/7481] /home/sherv/cmpe249_data/kitti/images/train/004360.png
+[4000/7481] /home/sherv/cmpe249_data/kitti/images/train/004988.png
+[4500/7481] /home/sherv/cmpe249_data/kitti/images/train/005635.png
+[5000/7481] /home/sherv/cmpe249_data/kitti/images/train/006271.png
+[5500/7481] /home/sherv/cmpe249_data/kitti/images/train/006897.png
+[6000/7481] /home/sherv/cmpe249_data/kitti/images/val/000106.png
+[6500/7481] /home/sherv/cmpe249_data/kitti/images/val/002601.png
+[7000/7481] /home/sherv/cmpe249_data/kitti/images/val/005095.png
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=2.91s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=20.49s).
+Accumulating evaluation results...
+DONE (t=5.87s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.223
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.437
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.207
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.132
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.325
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.184
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.377
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.410
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.358
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.396
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.484
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=2.76s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=20.40s).
+Accumulating evaluation results...
+DONE (t=3.36s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.223
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.437
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.207
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.132
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.325
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.184
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.377
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.410
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.358
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.396
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.484
+{
+  "config": {
+    "model": "yolo11s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolo11s.pt",
+    "weights_md5": "9637097d5fbdc1002d25d2d3d9f7c435",
+    "dataset": "kitti",
+    "split": "KITTI train+val (all labeled, Ultralytics version)",
+    "gt_file": "/home/sherv/cmpe249_data/kitti_coco/kitti_trainval_coco.json",
+    "n_images": 7481,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolo11s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.5296957437558275,
+    "inference": 9.789994505678171,
+    "postprocess": 1.3440319997318335,
+    "total": 11.663722249165833,
+    "fps_end_to_end": 85.73592363034177,
+    "fps_inference_only": 102.14510329091631,
+    "wall_clock_s": 100.215168963
+  },
+  "memory_mb": {
+    "peak_allocated": 82.84033203125,
+    "peak_reserved": 100.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2/yolo11s_kitti
+
+>>> rep 2/3  21:05:11  GPU before: 1% 1044 MiB
+>>> python eval_det.py --model rtdetr-l.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2
+loading annotations into memory...
+Done (t=0.40s)
+creating index...
+index created!
+[0/5000] /home/sherv/cmpe249_data/coco/val2017/000000000139.jpg
+[500/5000] /home/sherv/cmpe249_data/coco/val2017/000000057027.jpg
+[1000/5000] /home/sherv/cmpe249_data/coco/val2017/000000119365.jpg
+[1500/5000] /home/sherv/cmpe249_data/coco/val2017/000000173091.jpg
+[2000/5000] /home/sherv/cmpe249_data/coco/val2017/000000229753.jpg
+[2500/5000] /home/sherv/cmpe249_data/coco/val2017/000000289594.jpg
+[3000/5000] /home/sherv/cmpe249_data/coco/val2017/000000347544.jpg
+[3500/5000] /home/sherv/cmpe249_data/coco/val2017/000000405249.jpg
+[4000/5000] /home/sherv/cmpe249_data/coco/val2017/000000463174.jpg
+[4500/5000] /home/sherv/cmpe249_data/coco/val2017/000000521601.jpg
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=8.03s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=43.15s).
+Accumulating evaluation results...
+DONE (t=8.51s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.528
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.712
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.572
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.344
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.574
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.708
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.388
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.652
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.717
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.546
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.758
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.890
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=5.24s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=12.76s).
+Accumulating evaluation results...
+DONE (t=1.43s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.526
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.748
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.564
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.341
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.613
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.754
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.269
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.635
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.716
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.591
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.779
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.897
+{
+  "config": {
+    "model": "rtdetr-l.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/rtdetr-l.pt",
+    "weights_md5": "8e6bae256b16e9623c050979bb47c224",
+    "dataset": "coco",
+    "split": "COCO val2017",
+    "gt_file": "/home/sherv/cmpe249_data/coco/annotations/instances_val2017.json",
+    "n_images": 5000,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model rtdetr-l.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.8382226817999253,
+    "inference": 37.64523700679729,
+    "postprocess": 0.7024978218008983,
+    "total": 39.18595751039811,
+    "fps_end_to_end": 25.519345794591008,
+    "fps_inference_only": 26.56378547489124,
+    "wall_clock_s": 211.9472269810003
+  },
+  "memory_mb": {
+    "peak_allocated": 238.640625,
+    "peak_reserved": 302.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2/rtdetr-l_coco
+
+>>> rep 2/3  21:10:34  GPU before: 0% 1046 MiB
+>>> python eval_det.py --model rtdetr-l.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2
+loading annotations into memory...
+Done (t=0.07s)
+creating index...
+index created!
+[0/7481] /home/sherv/cmpe249_data/kitti/images/train/000002.png
+[500/7481] /home/sherv/cmpe249_data/kitti/images/train/000629.png
+[1000/7481] /home/sherv/cmpe249_data/kitti/images/train/001233.png
+[1500/7481] /home/sherv/cmpe249_data/kitti/images/train/001855.png
+[2000/7481] /home/sherv/cmpe249_data/kitti/images/train/002483.png
+[2500/7481] /home/sherv/cmpe249_data/kitti/images/train/003123.png
+[3000/7481] /home/sherv/cmpe249_data/kitti/images/train/003747.png
+[3500/7481] /home/sherv/cmpe249_data/kitti/images/train/004360.png
+[4000/7481] /home/sherv/cmpe249_data/kitti/images/train/004988.png
+[4500/7481] /home/sherv/cmpe249_data/kitti/images/train/005635.png
+[5000/7481] /home/sherv/cmpe249_data/kitti/images/train/006271.png
+[5500/7481] /home/sherv/cmpe249_data/kitti/images/train/006897.png
+[6000/7481] /home/sherv/cmpe249_data/kitti/images/val/000106.png
+[6500/7481] /home/sherv/cmpe249_data/kitti/images/val/002601.png
+[7000/7481] /home/sherv/cmpe249_data/kitti/images/val/005095.png
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=7.92s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=36.96s).
+Accumulating evaluation results...
+DONE (t=5.85s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.261
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.485
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.252
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.253
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.359
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.229
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.485
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.532
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.536
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.512
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.577
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=7.10s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=36.31s).
+Accumulating evaluation results...
+DONE (t=9.03s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.261
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.485
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.252
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.253
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.359
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.229
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.485
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.532
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.536
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.512
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.577
+{
+  "config": {
+    "model": "rtdetr-l.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/rtdetr-l.pt",
+    "weights_md5": "8e6bae256b16e9623c050979bb47c224",
+    "dataset": "kitti",
+    "split": "KITTI train+val (all labeled, Ultralytics version)",
+    "gt_file": "/home/sherv/cmpe249_data/kitti_coco/kitti_trainval_coco.json",
+    "n_images": 7481,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model rtdetr-l.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.7887360477177965,
+    "inference": 36.87517053187383,
+    "postprocess": 0.6833409461361627,
+    "total": 38.34724752572779,
+    "fps_end_to_end": 26.077490941927028,
+    "fps_inference_only": 27.118518655679953,
+    "wall_clock_s": 305.27128330100004
+  },
+  "memory_mb": {
+    "peak_allocated": 238.640625,
+    "peak_reserved": 302.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2/rtdetr-l_kitti
+
+>>> rep 3/3  21:18:09  GPU before: 0% 1046 MiB
+>>> python eval_det.py --model yolov8s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3
+loading annotations into memory...
+Done (t=0.40s)
+creating index...
+index created!
+[0/5000] /home/sherv/cmpe249_data/coco/val2017/000000000139.jpg
+[500/5000] /home/sherv/cmpe249_data/coco/val2017/000000057027.jpg
+[1000/5000] /home/sherv/cmpe249_data/coco/val2017/000000119365.jpg
+[1500/5000] /home/sherv/cmpe249_data/coco/val2017/000000173091.jpg
+[2000/5000] /home/sherv/cmpe249_data/coco/val2017/000000229753.jpg
+[2500/5000] /home/sherv/cmpe249_data/coco/val2017/000000289594.jpg
+[3000/5000] /home/sherv/cmpe249_data/coco/val2017/000000347544.jpg
+[3500/5000] /home/sherv/cmpe249_data/coco/val2017/000000405249.jpg
+[4000/5000] /home/sherv/cmpe249_data/coco/val2017/000000463174.jpg
+[4500/5000] /home/sherv/cmpe249_data/coco/val2017/000000521601.jpg
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=2.36s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=22.93s).
+Accumulating evaluation results...
+DONE (t=5.08s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.442
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.605
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.478
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.254
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.490
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.603
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.344
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.562
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.611
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.401
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.674
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.758
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=2.06s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=7.27s).
+Accumulating evaluation results...
+DONE (t=0.66s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.455
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.651
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.486
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.272
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.555
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.671
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.226
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.535
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.598
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.432
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.696
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.786
+{
+  "config": {
+    "model": "yolov8s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolov8s.pt",
+    "weights_md5": "0a1d5d0619d5a24848a267ec1e3a3118",
+    "dataset": "coco",
+    "split": "COCO val2017",
+    "gt_file": "/home/sherv/cmpe249_data/coco/annotations/instances_val2017.json",
+    "n_images": 5000,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolov8s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.3946423420082283,
+    "inference": 7.869412785604618,
+    "postprocess": 1.2725059060079729,
+    "total": 9.536561033620819,
+    "fps_end_to_end": 104.85960258362887,
+    "fps_inference_only": 127.0742846059979,
+    "wall_clock_s": 58.77251075699951
+  },
+  "memory_mb": {
+    "peak_allocated": 78.61865234375,
+    "peak_reserved": 104.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3/yolov8s_coco
+
+>>> rep 3/3  21:20:05  GPU before: 0% 1046 MiB
+>>> python eval_det.py --model yolov8s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3
+loading annotations into memory...
+Done (t=0.06s)
+creating index...
+index created!
+[0/7481] /home/sherv/cmpe249_data/kitti/images/train/000002.png
+[500/7481] /home/sherv/cmpe249_data/kitti/images/train/000629.png
+[1000/7481] /home/sherv/cmpe249_data/kitti/images/train/001233.png
+[1500/7481] /home/sherv/cmpe249_data/kitti/images/train/001855.png
+[2000/7481] /home/sherv/cmpe249_data/kitti/images/train/002483.png
+[2500/7481] /home/sherv/cmpe249_data/kitti/images/train/003123.png
+[3000/7481] /home/sherv/cmpe249_data/kitti/images/train/003747.png
+[3500/7481] /home/sherv/cmpe249_data/kitti/images/train/004360.png
+[4000/7481] /home/sherv/cmpe249_data/kitti/images/train/004988.png
+[4500/7481] /home/sherv/cmpe249_data/kitti/images/train/005635.png
+[5000/7481] /home/sherv/cmpe249_data/kitti/images/train/006271.png
+[5500/7481] /home/sherv/cmpe249_data/kitti/images/train/006897.png
+[6000/7481] /home/sherv/cmpe249_data/kitti/images/val/000106.png
+[6500/7481] /home/sherv/cmpe249_data/kitti/images/val/002601.png
+[7000/7481] /home/sherv/cmpe249_data/kitti/images/val/005095.png
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=3.30s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=24.60s).
+Accumulating evaluation results...
+DONE (t=3.82s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.222
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.436
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.206
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.177
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.320
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.188
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.375
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.409
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.402
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.390
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.470
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=3.33s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=21.44s).
+Accumulating evaluation results...
+DONE (t=6.11s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.222
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.436
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.206
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.177
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.320
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.188
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.375
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.409
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.402
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.390
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.470
+{
+  "config": {
+    "model": "yolov8s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolov8s.pt",
+    "weights_md5": "0a1d5d0619d5a24848a267ec1e3a3118",
+    "dataset": "kitti",
+    "split": "KITTI train+val (all labeled, Ultralytics version)",
+    "gt_file": "/home/sherv/cmpe249_data/kitti_coco/kitti_trainval_coco.json",
+    "n_images": 7481,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolov8s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.49294748870884464,
+    "inference": 7.229395396075747,
+    "postprocess": 1.2975718147353403,
+    "total": 9.019914699519932,
+    "fps_end_to_end": 110.86579344849271,
+    "fps_inference_only": 138.3241537103945,
+    "wall_clock_s": 80.05406231800043
+  },
+  "memory_mb": {
+    "peak_allocated": 55.82568359375,
+    "peak_reserved": 84.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3/yolov8s_kitti
+
+>>> rep 3/3  21:22:48  GPU before: 0% 1046 MiB
+>>> python eval_det.py --model yolo11s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3
+loading annotations into memory...
+Done (t=0.38s)
+creating index...
+index created!
+[0/5000] /home/sherv/cmpe249_data/coco/val2017/000000000139.jpg
+[500/5000] /home/sherv/cmpe249_data/coco/val2017/000000057027.jpg
+[1000/5000] /home/sherv/cmpe249_data/coco/val2017/000000119365.jpg
+[1500/5000] /home/sherv/cmpe249_data/coco/val2017/000000173091.jpg
+[2000/5000] /home/sherv/cmpe249_data/coco/val2017/000000229753.jpg
+[2500/5000] /home/sherv/cmpe249_data/coco/val2017/000000289594.jpg
+[3000/5000] /home/sherv/cmpe249_data/coco/val2017/000000347544.jpg
+[3500/5000] /home/sherv/cmpe249_data/coco/val2017/000000405249.jpg
+[4000/5000] /home/sherv/cmpe249_data/coco/val2017/000000463174.jpg
+[4500/5000] /home/sherv/cmpe249_data/coco/val2017/000000521601.jpg
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=2.02s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=24.87s).
+Accumulating evaluation results...
+DONE (t=2.95s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.457
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.623
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.493
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.278
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.502
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.625
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.348
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.568
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.617
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.424
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.673
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.772
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=1.99s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=7.30s).
+Accumulating evaluation results...
+DONE (t=0.63s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.464
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.658
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.500
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.279
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.557
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.697
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.232
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.551
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.616
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.451
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.701
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.821
+{
+  "config": {
+    "model": "yolo11s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolo11s.pt",
+    "weights_md5": "9637097d5fbdc1002d25d2d3d9f7c435",
+    "dataset": "coco",
+    "split": "COCO val2017",
+    "gt_file": "/home/sherv/cmpe249_data/coco/annotations/instances_val2017.json",
+    "n_images": 5000,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolo11s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.4027193173977139,
+    "inference": 10.103135111408665,
+    "postprocess": 1.2808154479987934,
+    "total": 11.786669876805172,
+    "fps_end_to_end": 84.8416058523779,
+    "fps_inference_only": 98.97917715371139,
+    "wall_clock_s": 69.77789265399952
+  },
+  "memory_mb": {
+    "peak_allocated": 110.57080078125,
+    "peak_reserved": 134.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3/yolo11s_coco
+
+>>> rep 3/3  21:24:56  GPU before: 0% 1046 MiB
+>>> python eval_det.py --model yolo11s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3
+loading annotations into memory...
+Done (t=0.07s)
+creating index...
+index created!
+[0/7481] /home/sherv/cmpe249_data/kitti/images/train/000002.png
+[500/7481] /home/sherv/cmpe249_data/kitti/images/train/000629.png
+[1000/7481] /home/sherv/cmpe249_data/kitti/images/train/001233.png
+[1500/7481] /home/sherv/cmpe249_data/kitti/images/train/001855.png
+[2000/7481] /home/sherv/cmpe249_data/kitti/images/train/002483.png
+[2500/7481] /home/sherv/cmpe249_data/kitti/images/train/003123.png
+[3000/7481] /home/sherv/cmpe249_data/kitti/images/train/003747.png
+[3500/7481] /home/sherv/cmpe249_data/kitti/images/train/004360.png
+[4000/7481] /home/sherv/cmpe249_data/kitti/images/train/004988.png
+[4500/7481] /home/sherv/cmpe249_data/kitti/images/train/005635.png
+[5000/7481] /home/sherv/cmpe249_data/kitti/images/train/006271.png
+[5500/7481] /home/sherv/cmpe249_data/kitti/images/train/006897.png
+[6000/7481] /home/sherv/cmpe249_data/kitti/images/val/000106.png
+[6500/7481] /home/sherv/cmpe249_data/kitti/images/val/002601.png
+[7000/7481] /home/sherv/cmpe249_data/kitti/images/val/005095.png
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=2.83s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=23.07s).
+Accumulating evaluation results...
+DONE (t=3.23s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.223
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.437
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.207
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.132
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.325
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.184
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.377
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.410
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.358
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.396
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.484
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=2.71s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=23.02s).
+Accumulating evaluation results...
+DONE (t=3.26s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.223
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.437
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.207
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.132
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.202
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.325
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.184
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.377
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.410
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.358
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.396
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.484
+{
+  "config": {
+    "model": "yolo11s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolo11s.pt",
+    "weights_md5": "9637097d5fbdc1002d25d2d3d9f7c435",
+    "dataset": "kitti",
+    "split": "KITTI train+val (all labeled, Ultralytics version)",
+    "gt_file": "/home/sherv/cmpe249_data/kitti_coco/kitti_trainval_coco.json",
+    "n_images": 7481,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolo11s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.49574058374814917,
+    "inference": 8.982435071905124,
+    "postprocess": 1.2320321612050051,
+    "total": 10.710207816858277,
+    "fps_end_to_end": 93.36886987626531,
+    "fps_inference_only": 111.32838612190554,
+    "wall_clock_s": 92.86643094400006
+  },
+  "memory_mb": {
+    "peak_allocated": 82.84033203125,
+    "peak_reserved": 100.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3/yolo11s_kitti
+
+>>> rep 3/3  21:27:46  GPU before: 0% 1046 MiB
+>>> python eval_det.py --model rtdetr-l.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3
+loading annotations into memory...
+Done (t=0.38s)
+creating index...
+index created!
+[0/5000] /home/sherv/cmpe249_data/coco/val2017/000000000139.jpg
+[500/5000] /home/sherv/cmpe249_data/coco/val2017/000000057027.jpg
+[1000/5000] /home/sherv/cmpe249_data/coco/val2017/000000119365.jpg
+[1500/5000] /home/sherv/cmpe249_data/coco/val2017/000000173091.jpg
+[2000/5000] /home/sherv/cmpe249_data/coco/val2017/000000229753.jpg
+[2500/5000] /home/sherv/cmpe249_data/coco/val2017/000000289594.jpg
+[3000/5000] /home/sherv/cmpe249_data/coco/val2017/000000347544.jpg
+[3500/5000] /home/sherv/cmpe249_data/coco/val2017/000000405249.jpg
+[4000/5000] /home/sherv/cmpe249_data/coco/val2017/000000463174.jpg
+[4500/5000] /home/sherv/cmpe249_data/coco/val2017/000000521601.jpg
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=5.36s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=42.56s).
+Accumulating evaluation results...
+DONE (t=8.10s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.528
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.712
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.572
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.344
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.574
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.708
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.388
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.652
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.717
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.546
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.758
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.890
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=8.63s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=9.96s).
+Accumulating evaluation results...
+DONE (t=1.38s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.526
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.748
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.564
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.341
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.613
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.754
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.269
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.635
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.716
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.591
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.779
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.897
+{
+  "config": {
+    "model": "rtdetr-l.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/rtdetr-l.pt",
+    "weights_md5": "8e6bae256b16e9623c050979bb47c224",
+    "dataset": "coco",
+    "split": "COCO val2017",
+    "gt_file": "/home/sherv/cmpe249_data/coco/annotations/instances_val2017.json",
+    "n_images": 5000,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model rtdetr-l.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.7913817086075141,
+    "inference": 36.07876558379867,
+    "postprocess": 0.6608464238070155,
+    "total": 37.5309937162132,
+    "fps_end_to_end": 26.644644891670026,
+    "fps_inference_only": 27.71713454767018,
+    "wall_clock_s": 202.87487161300032
+  },
+  "memory_mb": {
+    "peak_allocated": 238.640625,
+    "peak_reserved": 302.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3/rtdetr-l_coco
+
+>>> rep 3/3  21:33:01  GPU before: 0% 1046 MiB
+>>> python eval_det.py --model rtdetr-l.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3
+loading annotations into memory...
+Done (t=0.06s)
+creating index...
+index created!
+[0/7481] /home/sherv/cmpe249_data/kitti/images/train/000002.png
+[500/7481] /home/sherv/cmpe249_data/kitti/images/train/000629.png
+[1000/7481] /home/sherv/cmpe249_data/kitti/images/train/001233.png
+[1500/7481] /home/sherv/cmpe249_data/kitti/images/train/001855.png
+[2000/7481] /home/sherv/cmpe249_data/kitti/images/train/002483.png
+[2500/7481] /home/sherv/cmpe249_data/kitti/images/train/003123.png
+[3000/7481] /home/sherv/cmpe249_data/kitti/images/train/003747.png
+[3500/7481] /home/sherv/cmpe249_data/kitti/images/train/004360.png
+[4000/7481] /home/sherv/cmpe249_data/kitti/images/train/004988.png
+[4500/7481] /home/sherv/cmpe249_data/kitti/images/train/005635.png
+[5000/7481] /home/sherv/cmpe249_data/kitti/images/train/006271.png
+[5500/7481] /home/sherv/cmpe249_data/kitti/images/train/006897.png
+[6000/7481] /home/sherv/cmpe249_data/kitti/images/val/000106.png
+[6500/7481] /home/sherv/cmpe249_data/kitti/images/val/002601.png
+[7000/7481] /home/sherv/cmpe249_data/kitti/images/val/005095.png
+
+=== All GT classes ===
+Loading and preparing results...
+DONE (t=7.62s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=37.75s).
+Accumulating evaluation results...
+DONE (t=5.73s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.261
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.485
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.252
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.253
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.359
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.229
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.485
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.532
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.536
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.512
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.577
+
+=== Shared classes (person, car, truck) ===
+Loading and preparing results...
+DONE (t=9.30s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=36.73s).
+Accumulating evaluation results...
+DONE (t=6.24s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.261
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.485
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.252
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.253
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.359
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.229
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.485
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.532
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.536
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.512
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.577
+{
+  "config": {
+    "model": "rtdetr-l.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/rtdetr-l.pt",
+    "weights_md5": "8e6bae256b16e9623c050979bb47c224",
+    "dataset": "kitti",
+    "split": "KITTI train+val (all labeled, Ultralytics version)",
+    "gt_file": "/home/sherv/cmpe249_data/kitti_coco/kitti_trainval_coco.json",
+    "n_images": 7481,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model rtdetr-l.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.7788746438976719,
+    "inference": 36.587965678246974,
+    "postprocess": 0.67621374669418,
+    "total": 38.04305406883883,
+    "fps_end_to_end": 26.28600737970464,
+    "fps_inference_only": 27.331391113514147,
+    "wall_clock_s": 302.73261123299926
+  },
+  "memory_mb": {
+    "peak_allocated": 238.640625,
+    "peak_reserved": 302.0
+  }
+}
+Saved -> /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep3/rtdetr-l_kitti
+# Latency reruns on an idle GPU
+
+3 repetitions of every model × dataset (interleaved by rep), batch 1, FP32, imgsz 640, conf 0.001, NMS IoU 0.7 (YOLO only), max_det 300, 20 warm-up passes. Each repetition times every image in the dataset; values are **mean ± sample std across repetitions** (ms/img).
+
+Hardware: NVIDIA GeForce RTX 3060, driver 617.14, Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39, torch 2.11.0+cu128, ultralytics 8.4.197. Run id `rerun-20261031-203113`.
+
+GPU state sampled before each of the 18 evaluations (5 × 1 s mean): utilization 0–6% (mean 1.7%), memory used 1042–1105 MiB.
+
+## 1. Latency, mean ± std over repetitions (ms/img)
+
+| Model | Dataset | n | Preprocess | Inference | Postprocess | Total | FPS (end-to-end) |
+|---|---|---|---|---|---|---|---|
+| yolov8s | coco | 3 | 0.42 ± 0.04 | 9.01 ± 1.64 | 1.45 ± 0.26 | 10.88 ± 1.94 | 93.7 ± 15.3 |
+| yolov8s | kitti | 3 | 0.53 ± 0.04 | 8.05 ± 1.23 | 1.43 ± 0.18 | 10.00 ± 1.45 | 101.3 ± 13.6 |
+| yolo11s | coco | 3 | 0.41 ± 0.02 | 10.24 ± 0.22 | 1.29 ± 0.04 | 11.95 ± 0.27 | 83.7 ± 1.9 |
+| yolo11s | kitti | 3 | 0.51 ± 0.02 | 9.33 ± 0.41 | 1.29 ± 0.06 | 11.13 ± 0.49 | 90.0 ± 3.9 |
+| rtdetr-l | coco | 3 | 0.83 ± 0.03 | 37.33 ± 1.13 | 0.70 ± 0.03 | 38.86 ± 1.19 | 25.8 ± 0.8 |
+| rtdetr-l | kitti | 3 | 0.78 ± 0.00 | 36.80 ± 0.19 | 0.68 ± 0.01 | 38.27 ± 0.20 | 26.1 ± 0.1 |
+
+## 2. Is the YOLOv8s vs YOLO11s gap real?
+
+Δ = YOLO11s − YOLOv8s total latency. SE = √(s₁²/n₁ + s₂²/n₂). |Δ| > 2·SE is treated as a real difference (≈95%); otherwise it is within run-to-run noise.
+
+| Dataset | YOLOv8s total | YOLO11s total | Δ (ms) | 2·SE (ms) | Verdict |
+|---|---|---|---|---|---|
+| coco | 10.88 ± 1.94 | 11.95 ± 0.27 | +1.06 | 2.27 | within noise |
+| kitti | 10.00 ± 1.45 | 11.13 ± 0.49 | +1.12 | 1.77 | within noise |
+
+## 3. Original run (busy GPU, ~35% util / ~2 GB from other apps) vs idle reruns
+
+| Model | Dataset | Original total | Rerun total (mean ± std) | Change |
+|---|---|---|---|---|
+| yolov8s | coco | 13.67 | 10.88 ± 1.94 | -2.78 (-20%) |
+| yolov8s | kitti | 10.73 | 10.00 ± 1.45 | -0.72 (-7%) |
+| yolo11s | coco | 14.44 | 11.95 ± 0.27 | -2.49 (-17%) |
+| yolo11s | kitti | 14.36 | 11.13 ± 0.49 | -3.23 (-23%) |
+| rtdetr-l | coco | 46.84 | 38.86 ± 1.19 | -7.99 (-17%) |
+| rtdetr-l | kitti | 38.66 | 38.27 ± 0.20 | -0.39 (-1%) |
+
+## 4. Accuracy sanity check (should be identical across reps and to the original run)
+
+| Model | Dataset | Shared-class AP per rep | Original |
+|---|---|---|---|
+| yolov8s | coco | 45.50, 45.50, 45.50 | 45.50 |
+| yolov8s | kitti | 22.24, 22.24, 22.24 | 22.24 |
+| yolo11s | coco | 46.41, 46.41, 46.41 | 46.41 |
+| yolo11s | kitti | 22.29, 22.29, 22.29 | 22.29 |
+| rtdetr-l | coco | 52.55, 52.55, 52.55 | 52.55 |
+| rtdetr-l | kitti | 26.12, 26.12, 26.12 | 26.12 |
+
+## 5. Commands
+
+- **rtdetr-l / coco**: `eval_det.py --model rtdetr-l.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1` (× 3, `--out` differs per rep) | weights md5 `8e6bae256b16e9623c050979bb47c224`
+- **rtdetr-l / kitti**: `eval_det.py --model rtdetr-l.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1` (× 3, `--out` differs per rep) | weights md5 `8e6bae256b16e9623c050979bb47c224`
+- **yolo11s / coco**: `eval_det.py --model yolo11s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1` (× 3, `--out` differs per rep) | weights md5 `9637097d5fbdc1002d25d2d3d9f7c435`
+- **yolo11s / kitti**: `eval_det.py --model yolo11s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1` (× 3, `--out` differs per rep) | weights md5 `9637097d5fbdc1002d25d2d3d9f7c435`
+- **yolov8s / coco**: `eval_det.py --model yolov8s.pt --dataset coco --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1` (× 3, `--out` differs per rep) | weights md5 `0a1d5d0619d5a24848a267ec1e3a3118`
+- **yolov8s / kitti**: `eval_det.py --model yolov8s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep1` (× 3, `--out` differs per rep) | weights md5 `0a1d5d0619d5a24848a267ec1e3a3118`
+
+Done. Log: /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/logs/run-rerun-20261031-203113.log

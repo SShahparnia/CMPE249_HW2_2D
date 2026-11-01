@@ -1,0 +1,113 @@
+{
+  "config": {
+    "model": "yolo11s.pt",
+    "weights": "/mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/weights/yolo11s.pt",
+    "weights_md5": "9637097d5fbdc1002d25d2d3d9f7c435",
+    "dataset": "kitti",
+    "split": "KITTI train+val (all labeled, Ultralytics version)",
+    "gt_file": "/home/sherv/cmpe249_data/kitti_coco/kitti_trainval_coco.json",
+    "n_images": 7481,
+    "imgsz": 640,
+    "conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "batch": 1,
+    "precision": "fp32",
+    "warmup": 20,
+    "command": "eval_det.py --model yolo11s.pt --dataset kitti --imgsz 640 --conf 0.001 --iou 0.7 --max-det 300 --device 0 --save-vis 0 --out /mnt/c/Users/sherv/Desktop/CMPE249_HW_2D/reruns/rerun-20261031-203113/rep2"
+  },
+  "env": {
+    "host": "DESKTOP-5GA8ANJ",
+    "run_id": "rerun-20261031-203113",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_mem_total_mb": 12287.5,
+    "driver": "617.14",
+    "python": "3.12.3",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "cudnn": 91900,
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.197"
+  },
+  "speed_ms": {
+    "preprocess": 0.5296957437558275,
+    "inference": 9.789994505678171,
+    "postprocess": 1.3440319997318335,
+    "total": 11.663722249165833,
+    "fps_end_to_end": 85.73592363034177,
+    "fps_inference_only": 102.14510329091631,
+    "wall_clock_s": 100.215168963
+  },
+  "memory_mb": {
+    "peak_allocated": 82.84033203125,
+    "peak_reserved": 100.0
+  },
+  "n_detections": 768327,
+  "all_classes": {
+    "stats": {
+      "AP": 0.22292484180929129,
+      "AP50": 0.4371580241966308,
+      "AP75": 0.20724201861742886,
+      "AP_small": 0.13242269904513612,
+      "AP_medium": 0.20191621675608118,
+      "AP_large": 0.32508324939347855,
+      "AR1": 0.18370606597960978,
+      "AR10": 0.37745539715161863,
+      "AR100": 0.4099911495398657,
+      "AR_small": 0.3581623580526427,
+      "AR_medium": 0.3955991346824127,
+      "AR_large": 0.48413723750830123
+    },
+    "per_class": {
+      "person": {
+        "AP": 0.15348594395257603,
+        "AP50": 0.42987961197956415,
+        "n_gt": 6336
+      },
+      "car": {
+        "AP": 0.43051713647790407,
+        "AP50": 0.7544110711669736,
+        "n_gt": 31656
+      },
+      "truck": {
+        "AP": 0.08477144499739368,
+        "AP50": 0.1271833894433547,
+        "n_gt": 1094
+      }
+    }
+  },
+  "shared_classes": {
+    "stats": {
+      "AP": 0.22292484180929129,
+      "AP50": 0.4371580241966308,
+      "AP75": 0.20724201861742886,
+      "AP_small": 0.13242269904513612,
+      "AP_medium": 0.20191621675608118,
+      "AP_large": 0.32508324939347855,
+      "AR1": 0.18370606597960978,
+      "AR10": 0.37745539715161863,
+      "AR100": 0.4099911495398657,
+      "AR_small": 0.3581623580526427,
+      "AR_medium": 0.3955991346824127,
+      "AR_large": 0.48413723750830123
+    },
+    "per_class": {
+      "person": {
+        "AP": 0.15348594395257603,
+        "AP50": 0.42987961197956415,
+        "n_gt": 6336
+      },
+      "car": {
+        "AP": 0.43051713647790407,
+        "AP50": 0.7544110711669736,
+        "n_gt": 31656
+      },
+      "truck": {
+        "AP": 0.08477144499739368,
+        "AP50": 0.1271833894433547,
+        "n_gt": 1094
+      }
+    }
+  }
+}

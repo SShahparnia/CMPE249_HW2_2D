@@ -1,0 +1,40 @@
+{
+  "n_images": 7481,
+  "n_images_per_split": {
+    "train": 5985,
+    "val": 1496
+  },
+  "n_annotations": 39086,
+  "kept": {
+    "car->car": 28742,
+    "pedestrian->person": 4487,
+    "cyclist->person": 1627,
+    "truck->truck": 1094,
+    "van->car": 2914,
+    "person_sitting->person": 222
+  },
+  "dropped": {
+    "misc": 973,
+    "tram": 511
+  },
+  "kitti_names": {
+    "0": "car",
+    "1": "van",
+    "2": "truck",
+    "3": "pedestrian",
+    "4": "person_sitting",
+    "5": "cyclist",
+    "6": "tram",
+    "7": "misc"
+  },
+  "mapping": {
+    "car": "car",
+    "van": "car",
+    "truck": "truck",
+    "pedestrian": "person",
+    "person_sitting": "person",
+    "cyclist": "person",
+    "tram": null,
+    "misc": null
+  }
+}
