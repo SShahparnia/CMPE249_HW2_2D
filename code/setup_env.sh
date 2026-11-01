@@ -3,7 +3,12 @@
 set -euo pipefail
 PROJ="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 VENV="${CMPE249_VENV:-$HOME/.venvs/cmpe249}"
-python3 -m venv "$VENV"
+if python3 -c "import ensurepip" 2>/dev/null; then
+  python3 -m venv "$VENV"
+else  # python3.12-venv not installed (needs sudo): make a pip-less venv and bootstrap pip
+  python3 -m venv --without-pip "$VENV"
+  curl -fsSL https://bootstrap.pypa.io/get-pip.py | "$VENV/bin/python"
+fi
 ln -sfn "$VENV" "$PROJ/.venv"
 source "$PROJ/.venv/bin/activate"
 pip install -U pip
