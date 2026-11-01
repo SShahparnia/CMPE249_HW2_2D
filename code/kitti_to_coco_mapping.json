@@ -1,0 +1,11 @@
+{
+  "_note": "KITTI class -> COCO class used for zero-shot evaluation of COCO-pretrained detectors. null = dropped from GT (no COCO equivalent). Cyclist -> person because COCO detects the rider as 'person' (the bicycle is a separate COCO class); KITTI's cyclist box covers rider+bike, so expect lower IoU on this class.",
+  "car": "car",
+  "van": "car",
+  "truck": "truck",
+  "pedestrian": "person",
+  "person_sitting": "person",
+  "cyclist": "person",
+  "tram": null,
+  "misc": null
+}

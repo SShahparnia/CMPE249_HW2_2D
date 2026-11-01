@@ -1,0 +1,14 @@
+.venv/
+.venv
+data/
+data
+weights/
+results/*/detections.json
+results_smoke/
+__pycache__/
+*.pt
+*.zip
+
+# Private notes, kept local for now
+instructions.md
+plan.md
