@@ -12,7 +12,7 @@ runs = {}
 for f in sorted(RES.glob("*/metrics.json")):
     m = json.loads(f.read_text())
     runs[(Path(m["config"]["model"]).stem, m["config"]["dataset"])] = m
-models = sorted({k[0] for k in runs})
+models = [m for m in ("yolov8s", "yolo11s", "rtdetr-l") if any(k[0] == m for k in runs)]
 
 
 def pct(x):
@@ -20,7 +20,13 @@ def pct(x):
 
 
 L = ["# Results summary", "", "All runs: COCO-pretrained weights, no fine-tuning, imgsz 640, conf 0.001, "
-     "NMS IoU 0.7 (YOLO only), max_det 300, batch 1, FP32. AP = COCO AP@[.5:.95] (pycocotools).", ""]
+     "NMS IoU 0.7 (YOLO only), max_det 300, batch 1, FP32. AP = COCO AP@[.5:.95] (pycocotools).", "",
+     "COCO = val2017 (5,000 img); KITTI = train+val, 7,481 img (all labeled, Ultralytics version), "
+     "zero-shot, remapped to person/car/truck.", ""]
+if runs:
+    e = next(iter(runs.values()))["env"]
+    L += [f"Hardware: {e.get('gpu')}, driver {e.get('driver')}, {e.get('os')}, torch {e.get('torch')}, "
+          f"ultralytics {e.get('ultralytics')}.", ""]
 L += ["## 1. Overall (all GT classes in each dataset)", "",
       "| Model | Dataset | #img | AP | AP50 | AP75 | AP_S | AP_M | AP_L | AR100 | ms/img | FPS | Peak GPU MB | GPU |",
       "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
@@ -57,7 +63,7 @@ for mod in models:
         L.append(f"| {mod} | {cls} | {pct(cv['AP'])} | {pct(kv['AP'])} | {d} | {pct(cv['AP50'])} | {pct(kv['AP50'])} | {kv['n_gt']} |")
 
 L += ["", "## 4. Latency breakdown (ms/img, batch 1)", "",
-      "| Model | Dataset | Preprocess | Inference | Postprocess (NMS) | Total |", "|---|---|---|---|---|---|"]
+      "| Model | Dataset | Preprocess | Inference | Postprocess (NMS for YOLO; top-k only for RT-DETR) | Total |", "|---|---|---|---|---|---|"]
 for (mod, ds), m in sorted(runs.items()):
     s = m["speed_ms"]
     L.append(f"| {mod} | {ds} | {s['preprocess']:.2f} | {s['inference']:.2f} | {s['postprocess']:.2f} | {s['total']:.2f} |")
@@ -65,7 +71,8 @@ for (mod, ds), m in sorted(runs.items()):
 L += ["", "## 5. Reproducibility", ""]
 for (mod, ds), m in sorted(runs.items()):
     L.append(f"- **{mod} / {ds}**: `{m['config']['command']}` | weights md5 `{m['config']['weights_md5']}` | "
-             f"{m['env']['gpu']} on {m['env']['host']} (job {m['env']['slurm_job']}) | torch {m['env']['torch']}, "
+             f"{m['config']['split']} | {m['env']['gpu']} on {m['env']['host']} (run {m['env'].get('run_id')}, "
+             f"driver {m['env'].get('driver')}, {m['env'].get('os')}) | torch {m['env']['torch']}, "
              f"CUDA {m['env']['cuda']}, ultralytics {m['env']['ultralytics']}")
 
 (RES / "summary.md").write_text("\n".join(L) + "\n")

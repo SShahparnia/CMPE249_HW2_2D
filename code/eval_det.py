@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 """
-Zero-shot evaluation of a COCO-pretrained Ultralytics detector (YOLO11 or RT-DETR) on COCO val2017
-or KITTI val, scored with the official pycocotools COCOeval. No training / fine-tuning.
+Zero-shot evaluation of a COCO-pretrained Ultralytics detector (YOLOv8, YOLO11 or RT-DETR) on COCO val2017
+or KITTI train+val (7,481 images), scored with the official pycocotools COCOeval. No training / fine-tuning.
 
 Reports: AP@[.5:.95], AP50, AP75, AP S/M/L, AR, per-class AP, batch-1 latency/FPS, peak GPU memory.
 Saves:   results/<model>_<dataset>/{metrics.json, detections.json, vis/*.jpg}
 
-Example: python eval_det.py --model yolo11m.pt --dataset kitti
+Example: python eval_det.py --model yolo11s.pt --dataset kitti
 """
 import argparse
 import hashlib
@@ -14,6 +14,7 @@ import json
 import os
 import platform
 import socket
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -29,9 +30,11 @@ from ultralytics import RTDETR, YOLO
 from ultralytics.data.converter import coco80_to_coco91_class
 
 PROJ = Path(__file__).resolve().parents[1]
-GT = {"coco": PROJ / "data/coco/annotations/instances_val2017.json",
-      "kitti": PROJ / "data/kitti_coco/kitti_val_coco.json"}
-IMG_ROOT = {"coco": PROJ / "data/coco/val2017", "kitti": None}  # kitti json stores absolute paths
+DATA = Path(os.environ.get("CMPE249_DATA", PROJ / "data")).resolve()  # follows data/ symlink to ext4
+GT = {"coco": DATA / "coco/annotations/instances_val2017.json",
+      "kitti": DATA / "kitti_coco/kitti_trainval_coco.json"}
+IMG_ROOT = {"coco": DATA / "coco/val2017", "kitti": None}  # kitti json stores absolute paths
+SPLIT = {"coco": "COCO val2017", "kitti": "KITTI train+val (all labeled, Ultralytics version)"}
 SHARED_CATS = [1, 3, 8]  # COCO ids person/car/truck = classes that exist in both datasets
 STAT_NAMES = ["AP", "AP50", "AP75", "AP_small", "AP_medium", "AP_large",
               "AR1", "AR10", "AR100", "AR_small", "AR_medium", "AR_large"]
@@ -39,7 +42,7 @@ STAT_NAMES = ["AP", "AP50", "AP75", "AP_small", "AP_medium", "AP_large",
 
 def parse():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--model", required=True, help="yolo11n.pt | yolo11m.pt | rtdetr-l.pt")
+    ap.add_argument("--model", required=True, help="yolov8s.pt | yolo11s.pt | rtdetr-l.pt")
     ap.add_argument("--dataset", choices=list(GT), required=True)
     ap.add_argument("--imgsz", type=int, default=640)
     ap.add_argument("--conf", type=float, default=0.001, help="low conf for mAP (standard practice)")
@@ -52,6 +55,14 @@ def parse():
     ap.add_argument("--vis-conf", type=float, default=0.25)
     ap.add_argument("--out", default=str(PROJ / "results"))
     return ap.parse_args()
+
+
+def gpu_driver():
+    try:
+        return subprocess.run(["nvidia-smi", "--query-gpu=driver_version", "--format=csv,noheader"],
+                              capture_output=True, text=True, timeout=10).stdout.strip() or None
+    except Exception:
+        return None
 
 
 def load_model(name):
@@ -142,14 +153,16 @@ def main():
     total_ms = float(sp.sum(1).mean())
     metrics = {
         "config": {"model": a.model, "weights": wpath, "weights_md5": md5, "dataset": a.dataset,
-                   "split": "val2017" if a.dataset == "coco" else "kitti val (Ultralytics split)",
+                   "split": SPLIT[a.dataset],
                    "gt_file": str(GT[a.dataset]), "n_images": len(img_ids), "imgsz": a.imgsz,
                    "conf": a.conf, "nms_iou": a.iou, "max_det": a.max_det, "batch": 1,
                    "precision": "fp32", "warmup": a.warmup, "command": " ".join(sys.argv)},
-        "env": {"host": socket.gethostname(), "slurm_job": os.environ.get("SLURM_JOB_ID"),
-                "gpu": torch.cuda.get_device_name(0) if cuda else "cpu", "python": platform.python_version(),
-                "torch": torch.__version__, "cuda": torch.version.cuda, "torchvision": torchvision.__version__,
-                "ultralytics": ultralytics.__version__},
+        "env": {"host": socket.gethostname(), "run_id": os.environ.get("RUN_ID"), "os": platform.platform(),
+                "gpu": torch.cuda.get_device_name(0) if cuda else "cpu",
+                "gpu_mem_total_mb": torch.cuda.get_device_properties(0).total_memory / 2**20 if cuda else None,
+                "driver": gpu_driver(), "python": platform.python_version(), "torch": torch.__version__,
+                "cuda": torch.version.cuda, "cudnn": torch.backends.cudnn.version(),
+                "torchvision": torchvision.__version__, "ultralytics": ultralytics.__version__},
         "speed_ms": {"preprocess": float(sp[:, 0].mean()), "inference": float(sp[:, 1].mean()),
                      "postprocess": float(sp[:, 2].mean()), "total": total_ms,
                      "fps_end_to_end": 1000 / total_ms, "fps_inference_only": 1000 / float(sp[:, 1].mean()),
